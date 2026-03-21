@@ -27,7 +27,7 @@ const fridge = {
     }),
     extras: ["Lock and Key"],
     quantity: 1,
-    images: ["https://res.cloudinary.com/theenactorist/image/upload/v1774053595/Declutter/Fridge-declutter_phrvzi.jpg"]
+    images: ["https://res.cloudinary.com/theenactorist/image/upload/v1774086583/Declutter/Fridge-Declutter-0_zcmk2o.jpg"]
 };
 
 async function insertFridge() {
