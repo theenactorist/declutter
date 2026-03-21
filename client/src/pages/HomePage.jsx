@@ -39,7 +39,7 @@ export function HomePage() {
     const getStatusBadge = (status) => {
         switch (status) {
             case 'available': return <Badge variant="success">Available</Badge>;
-            case 'negotiation': return <Badge variant="warning">In Negotiation</Badge>;
+            case 'negotiation': return <Badge variant="warning" title="This item is in negotiation and is on hold for the next 24 hours. If the interested party does not make a decision on payment within 24 hours, it becomes available again.">In Negotiation</Badge>;
             case 'sold': return <Badge variant="default">Sold</Badge>;
             default: return null;
         }

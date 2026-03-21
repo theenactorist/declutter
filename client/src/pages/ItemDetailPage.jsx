@@ -123,10 +123,17 @@ export function ItemDetailPage() {
                                         {item.quantity > 1 && <span style={{ color: 'var(--color-text-secondary)', fontSize: '1rem', marginTop: '-0.25rem' }}>price per item</span>}
                                     </div>
                                     {item.status === 'available' && <Badge variant="success">Available</Badge>}
-                                    {item.status === 'negotiation' && <Badge variant="warning">In Negotiation</Badge>}
+                                    {item.status === 'negotiation' && <Badge variant="warning" title="This item is in negotiation and is on hold for the next 24 hours. If the interested party does not make a decision on payment within 24 hours, it becomes available again.">In Negotiation</Badge>}
                                     {item.status === 'sold' && <Badge variant="default">Sold</Badge>}
                                 </div>
                             </div>
+
+                            {item.status === 'negotiation' && (
+                                <div style={{ marginTop: '1.5rem', padding: '1rem', backgroundColor: '#fffbe6', borderLeft: '4px solid #faad14', borderRadius: '4px', fontSize: '0.9rem', color: '#8c6100' }}>
+                                    <strong style={{ display: 'block', marginBottom: '0.25rem', color: '#6b4a00' }}>What does "In Negotiation" mean?</strong>
+                                    This item is currently on hold. The interested party has 24 hours to make a decision on payment, otherwise it will become available again.
+                                </div>
+                            )}
 
                             <div className="info-section">
                                 <h3>Description</h3>
