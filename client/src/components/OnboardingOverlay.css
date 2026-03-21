@@ -1,0 +1,61 @@
+.onboarding-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: var(--spacing-md);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.onboarding-card {
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-2xl);
+    max-width: 480px;
+    width: 100%;
+    box-shadow: var(--shadow-lg);
+    animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: left;
+}
+
+.onboarding-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+}
+
+.onboarding-card p {
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.onboarding-tips {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+}
+
+.onboarding-tips li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+
+.onboarding-tips li::before {
+    content: '✨';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-size: 0.875rem;
+}
+
+.onboarding-tips strong {
+    color: var(--color-text-primary);
+}
