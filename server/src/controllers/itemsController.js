@@ -1,10 +1,12 @@
 const db = require('../db');
 
 // GET /api/items
+const PUBLIC_COLUMNS = `id, name, short_description, full_description, category, price, price_notes, status, condition_grade, condition_notes, specs, extras, quantity, images, is_archived, created_at, updated_at`;
+
 const getItems = async (req, res) => {
     try {
         const { rows } = await db.query(
-            'SELECT * FROM items WHERE is_archived = false ORDER BY created_at DESC'
+            `SELECT ${PUBLIC_COLUMNS} FROM items WHERE is_archived = false ORDER BY created_at DESC`
         );
         res.json(rows);
     } catch (error) {
@@ -17,7 +19,7 @@ const getItems = async (req, res) => {
 const getItemById = async (req, res) => {
     try {
         const { id } = req.params;
-        const { rows } = await db.query('SELECT * FROM items WHERE id = $1', [id]);
+        const { rows } = await db.query(`SELECT ${PUBLIC_COLUMNS} FROM items WHERE id = $1`, [id]);
 
         if (rows.length === 0) {
             return res.status(404).json({ error: 'Item not found' });
