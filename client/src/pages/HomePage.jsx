@@ -51,7 +51,9 @@ export function HomePage() {
             <header className="hero container">
                 <h1>Everything Must Go ✨</h1>
                 <p className="hero-subtitle">
-                    Quality items from our home to yours. Browse, find what you love, and reach out on WhatsApp.
+                    {items.length > 0 && items.filter(i => i.status !== 'sold').length === 0 
+                        ? "🎉 Everything is completely sold out. Thanks for stopping by!"
+                        : "Quality items from our home to yours. Browse, find what you love, and reach out on WhatsApp."}
                 </p>
 
                 {/* Filters & Search */}
@@ -103,7 +105,18 @@ export function HomePage() {
                     </div>
                 ) : filteredItems.length === 0 ? (
                     <div className="empty-state">
-                        <p>No items found matching your filters.</p>
+                        {items.length > 0 && items.filter(i => i.status !== 'sold').length === 0 && !showSold ? (
+                            <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
+                                <h2 style={{ fontSize: '2rem', marginBottom: '1rem' }}>🎉 Woah! We're Completely Sold Out!</h2>
+                                <p style={{ fontSize: '1.2rem', color: 'var(--color-text-secondary)', maxWidth: '600px', margin: '0 auto' }}>
+                                    Thank you for visiting! Truly, everything has packed up and gone. 
+                                    <br /><br />
+                                    Feel free to check the "Show sold items" box if you just came here to window shop history!
+                                </p>
+                            </div>
+                        ) : (
+                            <p>No items found matching your search. Try checking the "Show sold items" box!</p>
+                        )}
                     </div>
                 ) : (
                     <div className="gallery-grid">
